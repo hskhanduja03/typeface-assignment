@@ -109,7 +109,7 @@ export default function UploadPage() {
           description: transaction.description,
           type: "expense",
           date: new Date(transaction.date).toISOString(),
-          categoryId: "default-category-id",
+          categoryId: `${defaultCategory?.id}`,
           userId: "demo-user",
         }),
       });
@@ -145,8 +145,16 @@ export default function UploadPage() {
     fetchCategories();
   }, []);
 
-  const defaultCategory = categories.length > 0 ? categories[0] : null;
+  type Category = {
+    id: string;
+    name: string;
+    color: string;
+    icon: string;
+    userId: string;
+  };
 
+  const defaultCategory: Category = categories[0];
+  
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <EditTransactionModal

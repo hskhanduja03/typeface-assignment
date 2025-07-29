@@ -426,7 +426,7 @@ export function TransactionList({
                                   : "text-red-600"
                               )}
                             >
-                              {transaction.type === "income" ? "+" : "-"}$
+                              {transaction.type === "income" ? "+" : "-"}₹
                               {transaction.amount.toFixed(2)}
                             </p>
                             <Badge

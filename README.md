@@ -2,9 +2,9 @@
 
 A modern full-stack personal finance management tool that allows users to track, edit, and visualize their expenses effortlessly. This app supports image/PDF receipt parsing, editable transaction lists, insightful charts, and multi-user functionality.
 
-##  Demo
-
-Link : [https://youtube.com/]
+##  Demo Video
+![App Screenshot](/public/image.png)
+Link to video : [https://www.loom.com/share/351935c40dcb4296a432448226a5b5bc]
 
 ---
 

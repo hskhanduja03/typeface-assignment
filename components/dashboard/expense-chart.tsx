@@ -90,7 +90,7 @@ export function ExpenseChart({ data }: ExpenseChartProps) {
                   boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                 }}
                 formatter={(value: number) => [
-                  `$${value.toFixed(2)}`,
+                  `₹${value.toFixed(2)}`,
                   "Amount",
                 ]}
               />
@@ -125,7 +125,7 @@ export function ExpenseChart({ data }: ExpenseChartProps) {
               </div>
               <div className="text-right">
                 <div className="font-medium text-gray-700 dark:text-gray-200">
-                  ${item.amount.toFixed(2)}
+                  ₹{item.amount.toFixed(2)}
                 </div>
                 <div className="text-xs text-muted-foreground">
                   {item.percentage}%

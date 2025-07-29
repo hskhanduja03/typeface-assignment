@@ -20,21 +20,21 @@ export function StatsCards({
   const stats = [
     {
       title: "Total Income",
-      value: `$${totalIncome.toFixed(2)}`,
+      value: `₹${totalIncome.toFixed(2)}`,
       icon: TrendingUp,
       color: "text-green-600",
       bgColor: "bg-green-50 dark:bg-green-900/20",
     },
     {
       title: "Total Expenses",
-      value: `$${totalExpenses.toFixed(2)}`,
+      value: `₹${totalExpenses.toFixed(2)}`,
       icon: TrendingDown,
       color: "text-red-600",
       bgColor: "bg-red-50 dark:bg-red-900/20",
     },
     {
       title: "Net Income",
-      value: `$${netIncome.toFixed(2)}`,
+      value: `₹${netIncome.toFixed(2)}`,
       icon: Wallet,
       color: netIncome >= 0 ? "text-green-600" : "text-red-600",
       bgColor: netIncome >= 0 ? "bg-green-50 dark:bg-green-900/20" : "bg-red-50 dark:bg-red-900/20",
