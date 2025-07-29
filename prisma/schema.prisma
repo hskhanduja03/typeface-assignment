@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  transactions Transaction[]
+  categories   Category[]
+  receipts     Receipt[]
+
+  @@map("users")
+}
+
+model Category {
+  id     String @id @default(cuid())
+  name   String
+  color  String @default("#6366f1")
+  icon   String @default("📁")
+  userId String
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+
+  @@unique([name, userId])
+  @@map("categories")
+}
+
+model Transaction {
+  id          String      @id @default(cuid())
+  amount      Float
+  description String
+  type        String // "income" or "expense"
+  date        DateTime
+  categoryId  String
+  userId      String
+  receiptId   String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category Category  @relation(fields: [categoryId], references: [id])
+  receipt  Receipt?  @relation(fields: [receiptId], references: [id])
+
+  @@index([userId, date])
+  @@index([userId, type])
+  @@index([userId, categoryId])
+  @@map("transactions")
+}
+
+model Receipt {
+  id           String   @id @default(cuid())
+  fileName     String
+  originalName String
+  mimeType     String
+  size         Int
+  s3Key        String
+  s3Url        String
+  extractedText String?
+  status       String   @default("pending") // "pending", "processed", "failed"
+  userId       String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+
+  @@map("receipts")
+}
