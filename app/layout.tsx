@@ -1,13 +1,12 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/providers/theme-provider';
-import { Navbar } from '@/components/layout/navbar';
-import { Toaster } from '@/components/ui/sonner';
-
+import "./globals.css";
+import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Navbar } from "@/components/layout/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
-  title: 'Personal Finance Assistant',
-  description: 'Track, manage, and understand your financial activities',
+  title: "Personal Finance Assistant",
+  description: "Track, manage, and understand your financial activities",
 };
 
 export default function RootLayout({
@@ -18,10 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
-          rel="stylesheet" 
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
         />
+        <link rel="icon" href="/logo.png" />
       </head>
       <body>
         <ThemeProvider

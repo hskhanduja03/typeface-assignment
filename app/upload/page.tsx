@@ -11,18 +11,18 @@ import { CheckCircle, Plus, Pencil } from "lucide-react";
 import EditTransactionModal from "@/components/ui/EditTransactionModal";
 
 export interface ExtractedTransaction {
+  id?:string;
   amount: number;
   description: string;
   date: string;
   merchant?: string;
-  type?: "income" | "expense"; 
+  type?: "income" | "expense";
   category?: {
     id: string;
     name: string;
     color: string;
   };
 }
-
 
 export default function UploadPage() {
   const [extractedTransactions, setExtractedTransactions] = useState<
@@ -50,7 +50,6 @@ export default function UploadPage() {
     setIsModalOpen(false);
     toast.success("Transaction updated.");
   };
-
 
   const handleFileUpload = async (
     file: File,
