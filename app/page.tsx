@@ -66,7 +66,7 @@ export default function Dashboard() {
    const total = analyticsData.summary.totalExpenses;
    const pieData = analyticsData.expensesByCategory.map((item) => ({
      ...item,
-     percentage: ((item.amount / total) * 100).toFixed(1),
+     percentage: (item.amount / total) * 100,
    }));
 
   return (
